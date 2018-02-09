@@ -3,6 +3,6 @@ class Enrollment < ApplicationRecord
     validates :student_id, presence: true
 
     #this is for enrollment has many through association
-    belongs_to :students
-    belongs_to :subjects
+    belongs_to :student
+    belongs_to :subject
 end

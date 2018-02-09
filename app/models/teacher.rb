@@ -2,7 +2,7 @@ class Teacher < ApplicationRecord
     #this is for mail should be lowercase
     before_save {self.email = email.downcase}
     #teachername should be present 
-    validates :teachername, presence: true, length: {maximum:30}
+    validates :name, presence: true, length: {maximum:30}
     #validate email address
     VALID_EMAIL_REGEX =/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :email, presence: true, length: {maximum: 255},
