@@ -11,4 +11,7 @@ class Teacher < ApplicationRecord
     #one to many relationship between teachers and classes
     #so here one teacher has lot of  classes that's why we add bellow line in teacher model
     has_many :subjects
+    #for password digest
+    has_secure_password
+
 end

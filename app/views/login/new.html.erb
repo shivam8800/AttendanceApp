@@ -1,0 +1,46 @@
+
+<div class="container">
+    <div class="row main">
+        <div class="panel-heading">
+            <div class="panel-title text-center">
+                <h1 class="title">Log In</h1>
+                <hr />
+            </div>
+        </div> 
+        <div class="main-login main-center">
+            <%= form_for(:session, :html => {class: "form-horizontal", 
+                        role: "form"}, url: login_path) do |f| %>
+
+                <div class="form-group">
+                    <label for="email" class="cols-sm-2 control-label"><%= f.label :Email %></label>
+                    
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <%= f.email_field :email, class: "form-control", 
+                            placeholder: "Enter your email", id: "email"%>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password" class="cols-sm-2 control-label"><%= f.label :Password %></label>
+                    <div class="cols-sm-10">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                            <%= f.password_field :password, class: "form-control", 
+                          placeholder: "Enter your password", id: "password"%>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group ">
+                    <%= f.submit "Login", class: 'btn btn-primary btn-lg btn-block login-button' %>
+                </div>
+                <div class="login-register">
+                    <a href="#"><%= link_to "Signup", signup_path %></a>
+                </div>
+            <%end%>
+        </div>
+    </div>
+</div>

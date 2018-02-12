@@ -1,0 +1,22 @@
+<%= render 'shared/title', title: "#{@teacher.name}'s is your profile" %>
+
+<div class ="row">   
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-8 well center">
+        <div class="panel panel-default" style="width: 80%;">
+            <div class="panel-heading"><b>Name</b></div>
+            <div class="panel-body"><%= @teacher.name %></div>
+        </div>
+        <div class="panel panel-default" style="width: 80%;">
+            <div class="panel-heading"><strong>Email</strong></div>
+            <div class="panel-body"><%= @teacher.email %></div>
+        </div>
+        <p>
+            <span class="quite"><small>Created <%= time_ago_in_words(@teacher.created_at) %> ago</span>
+        </p>
+        <p>
+            <span class="quite"><small>Updated <%= time_ago_in_words(@teacher.updated_at) %> ago</span>
+        </p>
+    </div>
+</div>
