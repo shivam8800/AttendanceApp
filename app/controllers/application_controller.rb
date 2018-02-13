@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_teacher, :logged_in?
 
     def current_teacher
+      # debugger
       @current_teacher ||= Teacher.find(session[:teacher_id]) if session[:teacher_id]
     end
     

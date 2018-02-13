@@ -158,7 +158,10 @@ footer ul li {
 
 
 .center{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .jumbotron{
     background-image: url("cover_image.jpg");
@@ -193,4 +196,10 @@ footer ul li {
     font-weight: bold;
     font-family: -webkit-body;
     font-weight: 150;
+}
+
+.name{
+    font-family: -webkit-body;
+    font-weight: 100;
+    font-size: 50px;
 }

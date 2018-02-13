@@ -20,3 +20,27 @@
         </p>
     </div>
 </div>
+
+<% if @teacher.subjects.count !=0 %>
+    <h4 align="center" class="name" style="font-size: 40px;">
+        Your all subjects
+    </h4>
+    <% @teacher.subjects.each do |subject|%>
+        <div class ="row">   
+            <div class="col-md-8 well" style="margin-left: 100px;">
+                <h3><%= link_to subject.name, subject_path(subject) %></h3>
+                <p>
+                    <span class="quite"><small>Created <%= time_ago_in_words(subject.created_at) %> ago by <%= subject.teacher %></small></span>
+                </p>
+                <% if logged_in? && (current_teacher == subject.teacher)%>
+                    <div class="subject-actions">
+                        <%= link_to 'Edit this subject', edit_subject_path(subject), class: "btn btn-xs btn-warning" %>
+                        <%= link_to 'Delete this subject', subject_path(subject), method: :delete , data:{ confirm: "are you sure you want to delete this recipe?"}, class: "btn btn-xs btn-danger" %>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    <%end%>
+<%else%>
+    <h4 align="center">No subjects yet!</h4>
+<%end%>

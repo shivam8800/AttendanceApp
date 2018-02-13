@@ -5,7 +5,7 @@ class LoginController < ApplicationController
     end
     
     def create
-        debugger        
+        # debugger        
         teacher = Teacher.find_by(email: params[:session][:email].downcase)
         if teacher && teacher.authenticate(params[:session][:password])
             session[:teacher_id] = teacher.id
