@@ -5,7 +5,7 @@
         <div class="col-md-8 well">
             <h3><%= link_to subject.name, subject_path(subject) %></h3>
             <p>
-                <span class="quite"><small>Created <%= time_ago_in_words(subject.created_at) %> ago by <%= subject.teacher %></small></span>
+                <span class="quite"><small>Created <%= time_ago_in_words(subject.created_at) %> ago by <%= subject.teacher.name.capitalize %></small></span>
             </p>
             <% if logged_in? && (current_teacher == subject.teacher)%>
                 <div class="subject-actions">
