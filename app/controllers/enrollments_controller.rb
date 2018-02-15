@@ -2,7 +2,8 @@ class EnrollmentsController < ApplicationController
 
     def new
         @enrollment = Enrollment.new
-        @subjects = Subject.all
+        teacher = current_teacher
+        @subjects = teacher.subjects
         @students = Student.all
     end
 
