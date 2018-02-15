@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180212071859) do
+ActiveRecord::Schema.define(version: 20180215092724) do
 
   create_table "attendences", force: :cascade do |t|
     t.integer "report_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20180212071859) do
     t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subject_id", "student_id"], name: "index_enrollments_on_subject_id_and_student_id", unique: true
   end
 
   create_table "reports", force: :cascade do |t|
