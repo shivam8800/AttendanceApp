@@ -5,19 +5,19 @@
         <%= form_for(@enrollment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
             <div class="form-group" style="margin: 2%">
                 <div class="control-label col-md-2">
-                    <%= f.label :name, "Choose Subject Name" %>
+                    <%= f.label :subjectname, "Choose Subject Name" %>
                 </div>
                 <div class="col-md-8 styled-select slate">
-                    <%= f.select :subject, ['-----','option1', 'option2']%>
+                    <%= f.select :subject_id, @subjects.all.collect { |s| [s.name, s.id]}%>
                 </div>
             </div>
 
             <div class="form-group" style="margin: 2%">
                 <div class="control-label col-md-2">
-                    <%= f.label :name, "Choose Student Name" %>
+                    <%= f.label :studentname, "Choose Student Name" %>
                 </div>
                 <div class="col-md-8 styled-select slate">
-                    <%= f.select :student, ['-----','option1', 'option2']%>
+                    <%= f.select :student_id, @students.all.collect { |s| [s.name, s.id]}%>
                 </div>
             </div>
 

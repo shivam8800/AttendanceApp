@@ -2,9 +2,22 @@ class EnrollmentsController < ApplicationController
 
     def new
         @enrollment = Enrollment.new
+        @subjects = Subject.all
+        @students = Student.all
     end
 
     def create
-        
+        @enrollment = Enrollment.new(enrollment_params)
+        if @enrollment.save
+            flash[:success] = "You have enroll a new student"
+            redirect_to subject_path(enrollment_params["subject_id"])
+        else
+            render "new"
+        end
     end
+
+    private
+        def enrollment_params
+            params.require(:enrollment).permit(:subject_id, :student_id)
+        end
 end
