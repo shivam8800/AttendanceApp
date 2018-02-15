@@ -1,5 +1,10 @@
 class EnrollmentsController < ApplicationController
-    def index
-        @enrollments =  Enrollment.all
+
+    def new
+        @enrollment = Enrollment.new
+    end
+
+    def create
+        
     end
 end

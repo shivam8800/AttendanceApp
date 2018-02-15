@@ -203,3 +203,34 @@ footer ul li {
     font-weight: 100;
     font-size: 50px;
 }
+
+
+.styled-select {
+    background: url('dropdown.jpg') no-repeat 96% 0;
+    height: 58px;
+    overflow: hidden;
+    width: 480px;
+ }
+ 
+ .styled-select select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 58px;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    width: 536px;
+ }
+ 
+ .styled-select.slate {
+    background: url('dropdown.jpg') no-repeat right center;
+    height: 68px;
+    width: 480px;
+ }
+ 
+ .styled-select.slate select {
+    border: 1px solid #ccc;
+    font-size: 16px;
+    height: 68px;
+    width: 536px;
+ }
+ 

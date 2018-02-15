@@ -1,0 +1,31 @@
+<%= render 'shared/title', title: "Enroll a student in subject" %>
+
+<div class="row">
+    <div class="col-md-12" style="padding-left: 17%">
+        <%= form_for(@enrollment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+            <div class="form-group" style="margin: 2%">
+                <div class="control-label col-md-2">
+                    <%= f.label :name, "Choose Subject Name" %>
+                </div>
+                <div class="col-md-8 styled-select slate">
+                    <%= f.select :subject, ['-----','option1', 'option2']%>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin: 2%">
+                <div class="control-label col-md-2">
+                    <%= f.label :name, "Choose Student Name" %>
+                </div>
+                <div class="col-md-8 styled-select slate">
+                    <%= f.select :student, ['-----','option1', 'option2']%>
+                </div>
+            </div>
+
+            <div class="form-group" style="margin: 2%">
+                <div class="col-md-offset-2 col-md-10">
+                    <%= f.submit("Enroll a student", class: "btn btn-primary btn-lg btn-xlarge") %>
+                </div>
+            </div>
+        <%end%>
+    </div>
+</div>
