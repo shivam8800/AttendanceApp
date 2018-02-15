@@ -1,7 +1,7 @@
 <%= render "shared/title", title: "Your all subjects" %>
 
 <% @subjects.each do |subject|%>
-    <div class ="row">   
+    <div class ="row  center">   
         <div class="col-md-8 well">
             <h3><%= link_to subject.name, subject_path(subject) %></h3>
             <p>

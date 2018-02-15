@@ -7,4 +7,6 @@ class Student < ApplicationRecord
 
     #one to one relation between attendence and student
     has_one :attendence
+
+    default_scope -> { order(updated_at: :desc)}
 end

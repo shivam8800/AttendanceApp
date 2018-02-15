@@ -1,8 +1,11 @@
 <div class="jumbotron center">
     <h1>Welcome to my Attendence App</h1>
     <h2>The best attendence record app!</h2>
-
-    <p><%= link_to "Sign up for the app", signup_path, class: 'btn btn-primary btn-lg btn-xlarge' %></p>
+    <% if logged_in?%>
+        <p><%= link_to "All Subjects", subjects_path, class: 'btn btn-primary btn-lg btn-xlarge' %></p>
+    <%else%>
+        <p><%= link_to "Sign up for the app", signup_path, class: 'btn btn-primary btn-lg btn-xlarge' %></p>
+    <%end%>
 </div>
 
 <div class="row">

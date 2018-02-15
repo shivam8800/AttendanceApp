@@ -10,7 +10,7 @@ class TeachersController < ApplicationController
         if @teacher.save
             flash[:success] = "Welcome #{@teacher.name} to my Attendence app"
             # debugger
-            redirect_to teacher_path(@teacher)
+            redirect_to login_path
         else
             render "new"
         end

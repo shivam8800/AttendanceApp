@@ -11,4 +11,6 @@ class Subject < ApplicationRecord
 
     #one to many relationship between report table and subject table
     has_many :reports
+
+    default_scope -> { order(updated_at: :desc)}
 end

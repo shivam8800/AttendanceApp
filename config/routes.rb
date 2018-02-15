@@ -12,4 +12,7 @@ Rails.application.routes.draw do
 
   #subjects routes
   resources :subjects
+
+  #students routes
+  resources :students
 end
