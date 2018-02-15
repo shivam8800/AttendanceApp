@@ -32,6 +32,7 @@ class TeachersController < ApplicationController
     
     def show
         @teacher = Teacher.find(params[:id])
+        @teacher_subjects = @teacher.subjects.paginate(page: params[:page], per_page: 5)
     end
 
     def destroy

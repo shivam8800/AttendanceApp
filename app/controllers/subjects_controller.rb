@@ -17,10 +17,11 @@ class SubjectsController < ApplicationController
 
     def show
         @subject = Subject.find(params[:id])
+        @subject_enrollments = @subject.enrollments.paginate(page: params[:page], per_page: 5)
     end
 
     def index
-        @subjects = Subject.all
+        @subjects = Subject.paginate(page: params[:page], per_page: 5)
     end
 
     def edit
