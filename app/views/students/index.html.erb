@@ -5,7 +5,7 @@
         <div class="col-md-8 well">
             <h3><%= link_to student.name, student_path(student) %></h3>
             <p>
-                <span class="quite"><small>Created <%= time_ago_in_words(student.created_at) %> ago by </small></span>
+                <span class="quite"><small>Created <%= time_ago_in_words(student.created_at) %> ago </small></span>
             </p>
             <% if logged_in?%>
                 <div class="student-actions">

@@ -17,15 +17,18 @@
 def creating_teachers
     Teacher.create!([{
         name: "Yogesh",
-        email: "yogesh1@gmail.com"
+        email: "yogesh1@gmail.com",
+        password: "password"
     },
     {
         name: "Rohan",
-        email: "rohan1@gmail.com"
+        email: "rohan1@gmail.com",
+        password: "password"
     },
     {
         name: "Narender",
-        email: "narender1@gmail.com"
+        email: "narender1@gmail.com",
+        password: "password"
     }])
 end
 #calling a function

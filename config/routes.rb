@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 
   #students routes
   resources :students
+
+  #enrollment routes
+  resources :enrollments
 end
