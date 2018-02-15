@@ -1,10 +1,8 @@
 class EnrollmentsController < ApplicationController
 
     def new
-        @enrollment = Enrollment.new
-        teacher = current_teacher
-        @subjects = teacher.subjects
-        @students = Student.all
+        subject = Subject.find(params[:subject_id])
+        @enrollment = subject.enrollments.new
     end
 
     def create

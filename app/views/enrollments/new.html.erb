@@ -8,7 +8,7 @@
                     <%= f.label :subjectname, "Choose Subject Name" %>
                 </div>
                 <div class="col-md-8 styled-select slate">
-                    <%= f.select :subject_id, @subjects.all.collect { |s| [s.name, s.id]}, :include_blank =>true%>
+                    <%= f.select :subject_id, [@enrollment.subject.name,@enrollment.subject.id ], :include_blank =>false %>
                 </div>
             </div>
 
@@ -17,7 +17,7 @@
                     <%= f.label :studentname, "Choose Student Name" %>
                 </div>
                 <div class="col-md-8 styled-select slate">
-                    <%= f.select :student_id, @students.all.collect { |s| [s.name, s.id]}, :include_blank =>true%>
+                    <%= f.select :student_id, Student.all.all.collect { |s| [s.name, s.id]}, :include_blank =>true%>
                 </div>
             </div>
 
