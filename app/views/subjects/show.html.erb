@@ -42,7 +42,15 @@
             <% @subject_enrollments.each do |enrollment|%>
                 <div class="center">
                     <div class="panel panel-default" style="width: 80%;">
-                        <div class="panel-heading"><b>Student Name</b></div>
+                        <div class="panel-heading">
+                            <% if logged_in? && (current_teacher == @subject.teacher)%>  
+                                <h3 class="panel-title pull-left"><b>Student Name</b></h3>
+                                    <%= link_to 'UnEnroll', enrollment_path(enrollment), method: :delete , data:{ confirm: "are you sure you want to unroll this student?"}, class: "btn btn-xs btn-danger pull-right" %>
+                                    <div class="clearfix"></div>
+                            <%else%>
+                                <h3 class="panel-title"><b>Student Name</b></h3>
+                            <%end%>
+                        </div>
                         <div class="panel-body"><%= enrollment.student.name %></div>
                     </div>
                 </div>

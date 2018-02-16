@@ -17,7 +17,8 @@
                     <%= f.label :studentname, "Choose Student Name" %>
                 </div>
                 <div class="col-md-8 styled-select slate">
-                    <%= f.select :student_id, Student.all.collect { |s| [s.name, s.id]}, :include_blank =>true%>
+                    <%= f.select :student_id, options_for_select(Student.all.collect { |s| [s.name, s.id]}), :multiple => true, :include_blank => true %>
+
                 </div>
             </div>
 

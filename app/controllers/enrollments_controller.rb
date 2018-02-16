@@ -16,6 +16,14 @@ class EnrollmentsController < ApplicationController
         end
     end
 
+    def destroy
+        @enrollment = Enrollment.find(params[:id])
+        # debugger
+        @enrollment.destroy
+        flash[:success] = "You have successfully Unenroll a student"
+        redirect_to subject_path(@enrollment.subject_id)
+    end
+
     private
         def enrollment_params
             params.require(:enrollment).permit(:subject_id, :student_id)
