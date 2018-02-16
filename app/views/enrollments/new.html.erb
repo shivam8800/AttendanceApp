@@ -5,7 +5,7 @@
         <%= form_for(@enrollment, :html => {class: "form-horizontal", role: "form"}) do |f| %>
             <div class="form-group" style="margin: 2%">
                 <div class="control-label col-md-2">
-                    <%= f.label :subjectname, "Choose Subject Name" %>
+                    <%= f.label :subjectname, "Subject Name" %>
                 </div>
                 <div class="col-md-8 styled-select slate">
                     <%= f.select :subject_id, [[@enrollment.subject.name,@enrollment.subject.id]], :include_blank =>false %>
@@ -18,7 +18,6 @@
                 </div>
                 <div class="col-md-8 styled-select slate">
                     <%= f.select :student_id, options_for_select(Student.all.collect { |s| [s.name, s.id]}), :multiple => true, :include_blank => true %>
-
                 </div>
             </div>
 

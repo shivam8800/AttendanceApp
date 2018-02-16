@@ -2,7 +2,6 @@ class EnrollmentsController < ApplicationController
 
     def new
         subject = Subject.find(params[:subject_id])
-        p subject.name
         @enrollment = subject.enrollments.new
     end
 

@@ -1,0 +1,55 @@
+<%= render 'shared/title', title: "Today Attendence" %>
+
+<div class="row">
+    <div class="col-md-12" style="padding-left: 20%">
+        <%= form_for(@report, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+            <div style="display: flex; flex-direction: row;">
+                <div class="form-group" style="margin: 2%">
+                    <div class="control-label col-md-2">
+                        <%= f.label :date%>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="form-control width"><%= f.date_select(:date, :order => [ :day,:month, :year])%>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="form-group" style="margin: 2%">
+                    <div class="control-label col-md-2">
+                        <%= f.label :subjectname, "Subject Name" %>
+                    </div>
+                    <div class="col-md-8">
+                        <%= f.text_field :subject_id, :value => @report.subject.name, id: @report.subject.id, class: "form-control", disabled: true, style: "width: 150%;"  %>
+                    </div>
+                </div>
+            </div>
+            <div class"center" style="display: flex; justify-content: center; padding-right: 30%;">
+                <table class="table table-bordered table-striped table-responsive" style="width: 60%;">
+                    <thead>
+                        <tr>
+                        <th> Student</th>
+                        <th> Present </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%= f.fields_for :attendences do |form| %>
+                        <% @report.subject.students.each do |student| %>
+                            <tr>
+                                <td><%= form.text_field :student_id, :value => student.name, id: student.id, disabled: true, class: "form-control" %></td>
+                                <td><%= form.check_box :present %></td>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group" style="margin: 2%">
+                <div class="col-md-offset-2 col-md-10">
+                    <%= f.submit("Done", class: "btn btn-primary btn-lg btn-xlarge") %>
+                </div>
+            </div>
+        <%end%>
+    </div>
+</div>
+

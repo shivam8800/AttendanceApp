@@ -18,4 +18,10 @@ Rails.application.routes.draw do
 
   #enrollment routes
   resources :enrollments
+
+  #reports routes
+  resources :reports
+
+  #routes attendence
+  resources :attendences
 end
