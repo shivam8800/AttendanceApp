@@ -33,13 +33,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <%= f.fields_for :attendences do |form| %>
-                        <% @report.subject.students.each do |student| %>
-                            <tr>
-                                <td><%= form.text_field :student_id, :value => student.name, id: student.id, disabled: true, class: "form-control" %></td>
-                                <td><%= form.check_box :present %></td>
-                            </tr>
-                        <% end %>
+                    <%= f.fields_for :attendences, @attendances do |attendence| %>
+                        <tr>
+                            <td><%= attendence.text_field :student_id, class: "form-control" %></td>
+                            <td><%= attendence.check_box :present %></td>
+                        </tr>
                     <% end %>
                     </tbody>
                 </table>

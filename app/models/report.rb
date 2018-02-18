@@ -7,4 +7,5 @@ class Report < ApplicationRecord
 
     #one to many relationship between report and attendences
     has_many :attendences
+    accepts_nested_attributes_for :attendences
 end
