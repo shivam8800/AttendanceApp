@@ -3,7 +3,7 @@ class ReportsController < ApplicationController
         subject = Subject.find(params[:subject_id])
         @report = subject.reports.new
         students = subject.students
-        @attendances = students.map { |id| Attendence.new(student_id: id, report_id: @report.id) }
+        @attendances = students.map { |student| Attendence.new(student: student, report: @report) }
     end
 
     def create

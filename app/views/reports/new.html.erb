@@ -28,14 +28,16 @@
                 <table class="table table-bordered table-striped table-responsive" style="width: 60%;">
                     <thead>
                         <tr>
-                        <th> Student</th>
+                        <th> Student Id</th>
+                        <th> Student Name</th>
                         <th> Present </th>
                     </tr>
                     </thead>
                     <tbody>
                     <%= f.fields_for :attendences, @attendances do |attendence| %>
                         <tr>
-                            <td><%= attendence.text_field :student_id, class: "form-control" %></td>
+                            <td><%= attendence.text_field :student_id, value: attendence.object.student.id, class: "form-control" %></td>
+                            <td><%= attendence.text_field :student_name, value: attendence.object.student.name, class: "form-control" %></td>
                             <td><%= attendence.check_box :present %></td>
                         </tr>
                     <% end %>
