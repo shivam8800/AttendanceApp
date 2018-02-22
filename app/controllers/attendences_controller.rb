@@ -9,7 +9,7 @@ class AttendencesController < ApplicationController
         if @attendence.save
             flash[:success] = "you have successfully take attendence"
         end
-        render "new" 
+        render "new"
     end
 
 

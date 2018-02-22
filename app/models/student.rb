@@ -1,6 +1,7 @@
 class Student < ApplicationRecord
     validates :name, presence: true, length: {maximum:50}
 
+    validates_uniqueness_of :name
     #this is for enrollment has many through association
     has_many :enrollments, dependent: :destroy
     has_many :subjects, through: :enrollments

@@ -20,7 +20,8 @@
                         <%= f.label :subjectname, "Subject Name" %>
                     </div>
                     <div class="col-md-8">
-                        <%= f.text_field :subject_id, :value => @report.subject.name, id: @report.subject.id, class: "form-control", disabled: true, style: "width: 150%;"  %>
+                        <%= f.hidden_field :subject_id, :value => @report.subject.id  %>
+                        <%= f.text_field :subject_name, :value => @report.subject.name, disabled: true, class: "form-control", style: "width: 150%;"  %>
                     </div>
                 </div>
             </div>
@@ -28,16 +29,17 @@
                 <table class="table table-bordered table-striped table-responsive" style="width: 60%;">
                     <thead>
                         <tr>
-                        <th> Student Id</th>
                         <th> Student Name</th>
                         <th> Present </th>
                     </tr>
                     </thead>
                     <tbody>
-                    <%= f.fields_for :attendences, @attendances do |attendence| %>
+                    <%= f.fields_for :attendences, @attendences do |attendence| %>
                         <tr>
-                            <td><%= attendence.text_field :student_id, value: attendence.object.student.id, class: "form-control" %></td>
-                            <td><%= attendence.text_field :student_name, value: attendence.object.student.name, class: "form-control" %></td>
+                            <td>
+                            <%= attendence.text_field :student_name, value: attendence.object.student.name, class: "form-control", disabled: true %>
+                            <%= attendence.hidden_field :student_id, value: attendence.object.student.id, class: "form-control" %>
+                            </td>
                             <td><%= attendence.check_box :present %></td>
                         </tr>
                     <% end %>
