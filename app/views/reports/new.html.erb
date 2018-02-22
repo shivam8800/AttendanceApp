@@ -29,6 +29,7 @@
                 <table class="table table-bordered table-striped table-responsive" style="width: 60%;">
                     <thead>
                         <tr>
+                        <th>Roll Number</th>
                         <th> Student Name</th>
                         <th> Present </th>
                     </tr>
@@ -36,9 +37,10 @@
                     <tbody>
                     <%= f.fields_for :attendences, @attendences do |attendence| %>
                         <tr>
+                            <td><%= attendence.text_field :roll_number, value: attendence.object.student.id, class: "form-control", disabled: true %></td>
                             <td>
-                            <%= attendence.text_field :student_name, value: attendence.object.student.name, class: "form-control", disabled: true %>
-                            <%= attendence.hidden_field :student_id, value: attendence.object.student.id, class: "form-control" %>
+                                <%= attendence.text_field :student_name, value: attendence.object.student.name, class: "form-control", disabled: true %>
+                                <%= attendence.hidden_field :student_id, value: attendence.object.student.id, class: "form-control" %>
                             </td>
                             <td><%= attendence.check_box :present %></td>
                         </tr>

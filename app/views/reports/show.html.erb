@@ -1,0 +1,59 @@
+<%= render 'shared/title', title: "Show Attendence" %>
+
+
+<div class="row">
+    <div class="col-md-12" style="padding-left: 20%">
+            <div style="display: flex; flex-direction: row; margin:0;" class="row">
+                <div class="form-group col-md-5" style="margin: 2%">
+                    <div class="control-label col-md-2">
+                        <label>Date</label>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="form-control width" style="width: 100%;"><%= @report.date %>
+                        </span>
+                    </div>
+                </div>
+
+
+                <div class="form-group col-md-5" style="margin: 2%; margin-left: -10%;">
+                    <div class="control-label col-md-2">
+                        <label>Subject Name</label>
+                    </div>
+                    <div class="col-md-8">
+                        <span class="form-control width" style="width: 100%;"><%= @report.subject.name%></span>
+                    </div>
+                </div>
+            </div>
+            <div class"center" style="display: flex; justify-content: center; padding-right: 30%;">
+                <table class="table table-bordered table-striped table-responsive" style="width: 60%;">
+                    <thead>
+                        <tr>
+                        <th>Roll Number</th>
+                        <th> Student Name</th>
+                        <th> Present </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <% @attendences.each do |attendence| %>
+                        <tr>
+                            <td>
+                                <%= attendence.student.id%>
+                            </td>
+                            <td>
+                                <%= attendence.student.name%>
+                            </td>
+                            <td><%= attendence.present %></td>
+                        </tr>
+                    <%end%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="form-group" style="margin: 2%">
+                <div class="col-md-offset-2 col-md-10">
+                    <%= link_to "Subject", subject_path(@report.subject_id), class: "btn btn-primary btn-lg btn-xlarge" %>                    
+                </div>
+            </div>
+    </div>
+</div>
+
+
