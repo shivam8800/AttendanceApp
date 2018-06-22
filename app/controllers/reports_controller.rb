@@ -13,7 +13,8 @@ class ReportsController < ApplicationController
             attendences_params["attendences_attributes"].each do |attendence, value|
                 @attendence = Attendence.new()
                 @attendence.student_id = value["student_id"]
-                @attendence.present = true if value['present'] == "1"
+                # @attendence.present = true if value['present'] == "1" : @attendence.present = true
+                value['present'] == "1" ? @attendence.present = true : @attendence.present = false
                 @attendence.report = @report
                 if @attendence.save
                 end
